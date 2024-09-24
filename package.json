@@ -3,6 +3,7 @@
   "targets": {
     "main": false
   },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "name": "natours",
   "version": "1.0.0",
   "description": "learning node express and mangodb",
