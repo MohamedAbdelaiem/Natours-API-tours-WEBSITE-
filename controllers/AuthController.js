@@ -31,7 +31,8 @@ exports.signup = catchAsync(async (req, res) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
-    secure: false,
+    secure: true,
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") {
@@ -97,6 +98,8 @@ exports.login = catchAsync(async (req, res, next) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
+    secure: true,
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
@@ -192,7 +195,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   try {
     await new Email(user, resetURL).sendPasswordReset();
- 
+
     res.status(200).json({
       status: "success",
       message: "Token sent to email!",
@@ -247,6 +250,8 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
+    secure: true,
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
@@ -275,6 +280,8 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
+    secure: true,
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
@@ -308,8 +315,12 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   const message =
     "this account has been deactivated ! it will deleted permanently after 10 days";
   const cookieOptions = {
-    expires: new Date(Date.now() + 0),
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+    ),
     httpOnly: true,
+    secure: true,
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
