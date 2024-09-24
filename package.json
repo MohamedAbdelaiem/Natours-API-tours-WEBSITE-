@@ -8,7 +8,8 @@
   "version": "1.0.0",
   "description": "learning node express and mangodb",
   "scripts": {
-    "start": "SET NODE_ENV=production && nodemon server.js",
+    "start": "nodemon server.js",
+    "start:prod": "SET NODE_ENV=production && nodemon server.js",
     "build": "parcel build ./public/js/index.js --dist-dir ./public/js/bundled",
     "watch:js": "parcel watch ./public/js/index.js --dist-dir ./public/js/bundled"
   },
