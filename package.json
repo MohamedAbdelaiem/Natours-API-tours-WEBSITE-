@@ -8,7 +8,7 @@
   "version": "1.0.0",
   "description": "learning node express and mangodb",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "start:prod": "SET NODE_ENV=production && nodemon server.js",
     "build": "parcel build ./public/js/index.js --dist-dir ./public/js/bundled",
     "watch:js": "parcel watch ./public/js/index.js --dist-dir ./public/js/bundled"
@@ -67,5 +67,8 @@
     "stream-http": "^3.2.0",
     "url": "^0.11.4",
     "util": "^0.12.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
