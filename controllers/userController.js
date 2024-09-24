@@ -84,10 +84,10 @@ exports.getMe = (req, res, next) => {
 deleteInactiveAccounts = catchAsync(async () => {
   const userss = await User.find({ active: false });
   for (let i = 0; i < userss.length; i++) {
-    console.log(
-      userss[i].noneAcivatedAt.getTime() + 10 * 24 * 60 * 60 * 1000,
-      new Date().getTime(),
-    );
+    // console.log(
+    //   userss[i].noneAcivatedAt.getTime() + 10 * 24 * 60 * 60 * 1000,
+    //   new Date().getTime(),
+    // );
     if (userss[i].noneAcivatedAt.getTime() + 60 * 1000 < new Date().getTime()) {
       await User.findByIdAndDelete(userss[i]._id);
     }

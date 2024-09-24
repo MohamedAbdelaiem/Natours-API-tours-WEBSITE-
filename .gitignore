@@ -1,0 +1,15 @@
+# Node modules directory
+node_modules/
+
+# Parcel cache (used by the bundler)
+.parcel-cache/
+
+# Environment variables
+config.env
+
+
+# Eslint cache
+.eslintcache
+
+# Prettier cache (if any)
+.prettiercache

@@ -169,10 +169,7 @@ tours_schema.pre(/^find/, function (next) {
   next();
 });
 
-tours_schema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} milliseconds`);
-  next();
-});
+
 
 //Aggregation Middleware
 
@@ -189,7 +186,7 @@ tours_schema.pre('aggregate', function(next) {
     this.pipeline().splice(index, 1);
     this.pipeline().unshift(geoNearOpt);
   }
-  console.log('💰', this.pipeline());
+  // console.log('💰', this.pipeline());
   next();
 });
 

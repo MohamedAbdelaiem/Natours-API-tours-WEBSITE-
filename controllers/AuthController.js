@@ -37,7 +37,7 @@ exports.signup = catchAsync(async (req, res) => {
   if (process.env.NODE_ENV === "production") {
     cookieOptions.secure = true;
   }
-  console.log(cookieOptions, process.env.NODE_ENV);
+  // console.log(cookieOptions, process.env.NODE_ENV);
   res.cookie("jwt", token, cookieOptions);
   const url = `${req.protocol}://${req.get("host")}/me`;
 
@@ -77,7 +77,7 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError("Incorrect email or password", 401));
   }
   let message;
-  console.log(user.active);
+  // console.log(user.active);
   if (user.active == false) {
     user.active = true;
     message = "your account has been activated";
@@ -181,7 +181,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   if (!user) {
     return next(new AppError("There is no user with email address", 404));
   }
-  console.log(user);
+  // console.log(user);
 
   //2)Generate the random reset token
   const resetToken = await user.createPasswordResetToken();
@@ -229,7 +229,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   user.password = req.body.password;
   user.passwordConfirm = req.body.passwordConfirm;
 
-  console.log(user);
+  // console.log(user);
 
   //3)update changedPasswordAt property for the user
   user.passwordChangedAt = Date.now() - 1000;

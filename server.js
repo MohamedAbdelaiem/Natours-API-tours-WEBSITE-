@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //syncronous promises unhandled rejection
 process.on('unhandledRejection',err=>{
   console.log(err.name,err.message);
-  console.log('UNHANDLED REJECTION! Shutting down...');
+  // console.log('UNHANDLED REJECTION! Shutting down...');
   process.exit(1);
 });
 
@@ -11,7 +11,7 @@ process.on('unhandledRejection',err=>{
 
 process.on('uncaughtException',err=>{
   console.log(err.name,err.message);
-  console.log('UNCAUGHT EXCEPTION! Shutting down...');
+  // console.log('UNCAUGHT EXCEPTION! Shutting down...');
   process.exit(1);
 });
 dotenv.config({ path: "./config.env" });
