@@ -4,16 +4,11 @@
 Natous API for Tours is a powerful tour management application built using the MVC architecture. This project allows users to browse, book, and review various tours, all while providing an intuitive interface powered by Pug templates and Leaflet for interactive maps.
 
 ## 💻Web site
-https://natours-api-tours-website-4pdi7yo98-mohamedabdelaiems-projects.vercel.app/me
+https://natours-api-tours-website-4pdi7yo98-mohamedabdelaiems-projects.vercel.app
 
 ## ❗Permission security
 
 upload image has been stopped for Security permissions of vercel
-
-## View the Admin dash board
-user-email:admin@natours.io
-
-password:test1234
 
 ## 🛠️ Technologies Used
 - **Backend**: 
